@@ -29,7 +29,7 @@ body{
 }
 
 /* =========================
-   NEW CINEMATIC ENTRY SCREEN
+   ENTRY SCREEN
 ========================= */
 
 #entryScreen{
@@ -1015,113 +1015,4 @@ section{
 
 
     <div class="footer">
-        BEST FRIENDS FOREVER • DORAEMON
-    </div>
-
-</div>
-
-
-<script>
-
-/* =========================================
-   ENTRY SCREEN
-========================================= */
-
-const entryScreen = document.getElementById("entryScreen");
-const enterBtn = document.getElementById("enterBtn");
-const mainSite = document.getElementById("mainSite");
-const music = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-
-let musicPlaying = false;
-
-enterBtn.addEventListener("click", () => {
-
-    /* Start music after user interaction */
-    music.volume = 0.30;
-
-    music.play()
-        .then(() => {
-            musicPlaying = true;
-            musicBtn.classList.add("playing");
-            musicBtn.textContent = "♫";
-        })
-        .catch(() => {});
-
-    /* Cinematic exit */
-    entryScreen.classList.add("hide");
-
-    setTimeout(() => {
-        mainSite.classList.add("show");
-        window.scrollTo(0,0);
-    },500);
-
-});
-
-
-/* =========================================
-   MUSIC CONTROL
-========================================= */
-
-musicBtn.addEventListener("click", () => {
-
-    if(music.paused){
-
-        music.play()
-            .then(() => {
-                musicPlaying = true;
-                musicBtn.classList.add("playing");
-                musicBtn.textContent = "♫";
-            })
-            .catch(() => {});
-
-    }else{
-
-        music.pause();
-
-        musicPlaying = false;
-        musicBtn.classList.remove("playing");
-        musicBtn.textContent = "♪";
-    }
-
-});
-
-
-/* =========================================
-   SCROLL REVEAL
-========================================= */
-
-const observer = new IntersectionObserver(
-    (entries) => {
-
-        entries.forEach(entry => {
-
-            if(entry.isIntersecting){
-                entry.target.classList.add("visible");
-            }
-
-        });
-
-    },
-    {
-        threshold:0.15
-    }
-);
-
-document.querySelectorAll(".reveal").forEach(el => {
-    observer.observe(el);
-});
-
-
-/* =========================================
-   PREVENT ACCIDENTAL AUDIO ERRORS
-========================================= */
-
-music.addEventListener("error", () => {
-    musicBtn.style.display = "none";
-});
-
-</script>
-
-</body>
-</html>
+     

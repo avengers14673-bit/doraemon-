@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07152f">
-<meta name="description" content="A little place for a friendship that feels like home.">
 
 <title>Best Friends Forever ✨</title>
 
@@ -22,23 +21,23 @@ html{
 }
 
 body{
-    background:#050b18;
-    color:white;
+    background:#040914;
+    color:#fff;
     font-family:'DM Sans',sans-serif;
     overflow-x:hidden;
 }
 
-/* ---------- BACKGROUND ---------- */
+/* ================= BACKGROUND ================= */
 
-body::before{
+body:before{
     content:"";
     position:fixed;
     inset:0;
+    z-index:-5;
     background:
-        radial-gradient(circle at 20% 20%,rgba(25,91,180,.22),transparent 28%),
-        radial-gradient(circle at 80% 70%,rgba(255,177,45,.12),transparent 28%),
-        linear-gradient(180deg,#06142e,#030817);
-    z-index:-3;
+    radial-gradient(circle at 20% 10%,rgba(35,111,210,.24),transparent 28%),
+    radial-gradient(circle at 85% 65%,rgba(255,183,62,.13),transparent 25%),
+    linear-gradient(180deg,#061633,#030711 70%);
 }
 
 .stars{
@@ -46,38 +45,37 @@ body::before{
     inset:0;
     pointer-events:none;
     z-index:-2;
-    overflow:hidden;
 }
 
 .star{
     position:absolute;
     width:2px;
     height:2px;
-    background:white;
     border-radius:50%;
-    opacity:.6;
+    background:#fff;
+    opacity:.4;
     animation:twinkle 3s infinite ease-in-out;
 }
 
 @keyframes twinkle{
-    0%,100%{opacity:.2;transform:scale(.7)}
-    50%{opacity:1;transform:scale(1.4)}
+    0%,100%{opacity:.15}
+    50%{opacity:.9}
 }
 
-/* ---------- LOADING / ENTER ---------- */
+/* ================= INTRO ================= */
 
 #intro{
     position:fixed;
     inset:0;
     z-index:1000;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
     padding:25px;
     background:
-        radial-gradient(circle at 50% 35%,rgba(29,104,205,.25),transparent 30%),
-        #040a17;
+    radial-gradient(circle at 50% 35%,rgba(24,101,210,.25),transparent 32%),
+    #030812;
     transition:opacity 1s ease,visibility 1s ease;
 }
 
@@ -88,54 +86,56 @@ body::before{
 }
 
 .intro-box{
-    max-width:420px;
+    max-width:430px;
 }
 
-.small-line{
-    color:#9bbbe9;
+.intro-small{
+    font-size:10px;
     letter-spacing:4px;
+    color:#9fb8da;
     text-transform:uppercase;
-    font-size:11px;
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 .intro-title{
     font-family:Pacifico,cursive;
-    font-size:clamp(40px,12vw,70px);
+    font-size:clamp(43px,12vw,72px);
     line-height:1.05;
-    color:white;
-    text-shadow:0 0 30px rgba(80,150,255,.35);
 }
 
 .intro-title span{
     color:#ffc94d;
 }
 
-.intro-sub{
-    margin:22px auto 32px;
-    color:#b7c4d8;
-    line-height:1.7;
+.intro-text{
+    color:#aebdd2;
+    line-height:1.8;
     font-size:15px;
+    margin:25px auto 32px;
 }
 
 .enter-btn{
-    border:1px solid rgba(255,255,255,.25);
-    background:linear-gradient(135deg,#1260c7,#093b86);
-    color:white;
-    padding:15px 32px;
+    border:1px solid rgba(255,255,255,.2);
     border-radius:50px;
-    font-size:15px;
+    padding:15px 30px;
+    color:#fff;
+    background:linear-gradient(135deg,#1264cf,#083875);
     font-weight:700;
+    font-size:14px;
     cursor:pointer;
-    box-shadow:0 10px 40px rgba(0,91,220,.35);
+    box-shadow:0 15px 45px rgba(0,91,220,.3);
     transition:.3s;
 }
 
 .enter-btn:hover{
-    transform:translateY(-3px) scale(1.03);
+    transform:translateY(-3px);
 }
 
-/* ---------- MAIN ---------- */
+.enter-btn:active{
+    transform:scale(.96);
+}
+
+/* ================= MAIN ================= */
 
 main{
     opacity:0;
@@ -148,14 +148,14 @@ main.show{
 
 section{
     min-height:100vh;
-    padding:90px 22px;
+    padding:90px 20px;
     display:flex;
     align-items:center;
     justify-content:center;
     position:relative;
 }
 
-/* ---------- HERO ---------- */
+/* ================= HERO ================= */
 
 .hero{
     min-height:100svh;
@@ -165,53 +165,67 @@ section{
 
 .sun{
     position:absolute;
-    width:170px;
-    height:170px;
+    width:180px;
+    height:180px;
     border-radius:50%;
-    background:radial-gradient(circle,#fff2a8,#ffc14d 35%,rgba(255,160,30,.05) 70%);
-    filter:blur(.3px);
-    top:18%;
+    top:16%;
     left:50%;
     transform:translateX(-50%);
-    box-shadow:0 0 90px rgba(255,180,50,.3);
+    background:radial-gradient(
+        circle,
+        #fff3b0 0%,
+        #ffc34c 35%,
+        rgba(255,170,30,.05) 70%
+    );
+    box-shadow:0 0 100px rgba(255,186,60,.28);
+}
+
+.horizon{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:35%;
+    background:
+    linear-gradient(180deg,transparent,#050b16 70%);
 }
 
 .hero-content{
     position:relative;
-    z-index:2;
-    max-width:700px;
+    z-index:3;
+    max-width:720px;
 }
 
 .hero-tag{
     color:#ffc94d;
+    font-size:10px;
     letter-spacing:4px;
-    font-size:11px;
     text-transform:uppercase;
     margin-bottom:20px;
 }
 
 .hero h1{
     font-family:Pacifico,cursive;
-    font-size:clamp(45px,13vw,90px);
-    line-height:1.05;
+    font-size:clamp(45px,13vw,88px);
+    line-height:1.06;
 }
 
 .hero h1 span{
     color:#ffc94d;
 }
 
-.hero p{
-    max-width:500px;
+.hero-description{
+    max-width:530px;
     margin:25px auto;
-    color:#c3cfdf;
-    font-size:16px;
-    line-height:1.8;
+    color:#bac8dc;
+    line-height:1.85;
+    font-size:15px;
 }
 
-.scroll{
+.scroll-text{
     margin-top:50px;
-    color:#7184a2;
-    font-size:11px;
+    color:#6f819c;
+    font-size:10px;
     letter-spacing:3px;
     text-transform:uppercase;
     animation:float 2.5s infinite;
@@ -222,84 +236,99 @@ section{
     50%{transform:translateY(8px)}
 }
 
-/* ---------- QUOTE ---------- */
+/* ================= QUOTE ================= */
 
 .quote-section{
     background:
-        linear-gradient(180deg,transparent,rgba(14,45,90,.22),transparent);
+    linear-gradient(
+        180deg,
+        transparent,
+        rgba(11,49,98,.25),
+        transparent
+    );
 }
 
-.quote-card{
-    max-width:760px;
+.quote-container{
+    width:min(100%,760px);
     text-align:center;
-    padding:45px 25px;
 }
 
 .quote-mark{
-    font-size:70px;
-    line-height:.5;
     color:#ffc94d;
+    font-family:Georgia,serif;
+    font-size:80px;
+    line-height:.5;
     opacity:.7;
 }
 
 .quote{
     font-family:Georgia,serif;
     font-size:clamp(27px,7vw,48px);
-    line-height:1.3;
+    line-height:1.35;
     margin:25px 0;
 }
 
-.quote em{
+.quote span{
     color:#ffc94d;
-    font-style:normal;
 }
 
-.quote-note{
-    color:#7f92af;
-    font-size:13px;
+.quote-author{
+    color:#7185a3;
+    font-size:12px;
 }
 
-/* ---------- FRIENDSHIP CARD ---------- */
+/* ================= FRIENDSHIP CARD ================= */
 
 .friendship{
     flex-direction:column;
 }
 
-.section-label{
+.label{
     color:#ffc94d;
+    font-size:10px;
     letter-spacing:4px;
     text-transform:uppercase;
-    font-size:11px;
-    margin-bottom:14px;
+    margin-bottom:15px;
 }
 
 .section-title{
-    font-size:clamp(32px,8vw,55px);
+    font-size:clamp(31px,8vw,55px);
     text-align:center;
     margin-bottom:40px;
 }
 
 .friend-card{
-    width:min(100%,700px);
-    min-height:390px;
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:30px;
-    overflow:hidden;
+    width:min(100%,720px);
+    min-height:420px;
     position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.1);
+
     background:
-        radial-gradient(circle at 80% 20%,rgba(255,196,72,.2),transparent 25%),
-        linear-gradient(135deg,#0b3970,#07162d 65%);
-    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    radial-gradient(
+        circle at 80% 15%,
+        rgba(255,194,67,.2),
+        transparent 25%
+    ),
+    linear-gradient(135deg,#0c3c73,#07162e 70%);
+
+    box-shadow:0 30px 90px rgba(0,0,0,.4);
 }
 
-.friend-card::after{
+.friend-card:after{
     content:"";
     position:absolute;
     inset:0;
     background:
-        linear-gradient(120deg,transparent 30%,rgba(255,255,255,.07) 50%,transparent 70%);
+    linear-gradient(
+        115deg,
+        transparent 25%,
+        rgba(255,255,255,.08) 50%,
+        transparent 75%
+    );
     transform:translateX(-100%);
-    animation:sweep 7s infinite;
+    animation:sweep 8s infinite;
 }
 
 @keyframes sweep{
@@ -307,98 +336,115 @@ section{
     75%,100%{transform:translateX(100%)}
 }
 
+.circle{
+    position:absolute;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+}
+
+.circle.one{
+    width:300px;
+    height:300px;
+    right:-120px;
+    top:-110px;
+}
+
+.circle.two{
+    width:200px;
+    height:200px;
+    left:-90px;
+    bottom:-80px;
+}
+
 .friend-content{
     position:relative;
     z-index:2;
-    padding:42px 30px;
+    padding:45px 30px;
 }
 
-.friend-content h3{
+.friend-title{
     font-family:Pacifico,cursive;
-    font-size:38px;
     color:#ffc94d;
-    margin-bottom:20px;
+    font-size:36px;
+    margin-bottom:22px;
 }
 
 .friend-content p{
-    color:#d1dbea;
+    color:#ccd7e7;
     line-height:1.9;
     font-size:15px;
-    max-width:520px;
+    max-width:560px;
 }
 
-.doodle{
-    position:absolute;
-    opacity:.18;
-    font-size:80px;
+.friend-highlight{
+    color:#fff !important;
+    font-weight:600;
 }
 
-.d1{right:20px;top:20px}
-.d2{left:20px;bottom:20px}
-
-/* ---------- MEMORY ---------- */
+/* ================= MEMORY ================= */
 
 .memory{
     flex-direction:column;
-    text-align:center;
 }
 
 .memory-grid{
-    width:min(100%,760px);
+    width:min(100%,780px);
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:14px;
+    gap:15px;
 }
 
 .memory-box{
-    min-height:170px;
-    padding:25px 18px;
-    border-radius:22px;
+    min-height:180px;
+    padding:25px 20px;
+    border-radius:23px;
     border:1px solid rgba(255,255,255,.08);
     background:rgba(255,255,255,.035);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    transition:.3s;
+    text-align:center;
+    transition:.35s;
 }
 
 .memory-box:hover{
-    transform:translateY(-5px);
+    transform:translateY(-7px);
     background:rgba(255,255,255,.06);
 }
 
 .memory-icon{
-    font-size:30px;
-    margin-bottom:12px;
+    font-size:31px;
+    margin-bottom:13px;
 }
 
-.memory-box h4{
+.memory-box h3{
     font-size:16px;
-    margin-bottom:8px;
+    margin-bottom:9px;
 }
 
 .memory-box p{
-    color:#899ab5;
+    color:#8798b2;
     font-size:13px;
-    line-height:1.6;
+    line-height:1.65;
 }
 
-/* ---------- DEEP QUOTE ---------- */
+/* ================= DEEP MESSAGE ================= */
 
 .deep{
     text-align:center;
     background:
-        radial-gradient(circle at center,rgba(14,76,155,.18),transparent 55%);
+    radial-gradient(
+        circle at center,
+        rgba(16,82,166,.2),
+        transparent 55%
+    );
 }
 
-.deep-inner{
-    max-width:700px;
+.deep-container{
+    width:min(100%,750px);
 }
 
 .deep h2{
     font-family:Georgia,serif;
-    font-size:clamp(29px,7vw,50px);
-    line-height:1.4;
+    font-size:clamp(30px,7vw,51px);
+    line-height:1.45;
     font-weight:400;
 }
 
@@ -407,34 +453,34 @@ section{
 }
 
 .deep p{
-    margin-top:25px;
-    color:#8293ae;
+    color:#7e91ad;
     line-height:1.8;
+    margin-top:25px;
 }
 
-/* ---------- FINAL ---------- */
+/* ================= FINAL ================= */
 
 .final{
     min-height:100svh;
     text-align:center;
 }
 
-.final-box{
+.final-container{
     max-width:700px;
 }
 
 .final-small{
-    color:#9aabc4;
-    letter-spacing:3px;
+    color:#91a3bd;
     font-size:10px;
+    letter-spacing:4px;
     text-transform:uppercase;
     margin-bottom:25px;
 }
 
 .final h2{
     font-family:Pacifico,cursive;
-    font-size:clamp(42px,11vw,78px);
-    line-height:1.15;
+    font-size:clamp(43px,11vw,80px);
+    line-height:1.12;
 }
 
 .final h2 span{
@@ -442,38 +488,73 @@ section{
 }
 
 .final-message{
-    margin:28px auto;
+    max-width:540px;
+    margin:30px auto;
     color:#b7c5d8;
     line-height:1.9;
-    max-width:520px;
+    font-size:15px;
 }
 
-.signature{
+.final-line{
     margin-top:45px;
     font-family:Pacifico,cursive;
     color:#ffc94d;
     font-size:22px;
 }
 
-/* ---------- MUSIC ---------- */
+/* ================= MUSIC ================= */
 
 .music-btn{
     position:fixed;
+    z-index:100;
     right:18px;
     bottom:18px;
-    width:50px;
-    height:50px;
+
+    width:52px;
+    height:52px;
+
     border-radius:50%;
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(6,20,45,.8);
+    border:1px solid rgba(255,255,255,.18);
+
+    background:rgba(5,18,42,.82);
     backdrop-filter:blur(12px);
-    color:white;
-    font-size:19px;
-    z-index:50;
+
+    color:#fff;
+    font-size:18px;
     cursor:pointer;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
-/* ---------- RESPONSIVE ---------- */
+.music-btn.playing{
+    animation:musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse{
+    0%,100%{
+        box-shadow:0 8px 25px rgba(0,0,0,.25);
+    }
+    50%{
+        box-shadow:0 0 25px rgba(255,201,77,.35);
+    }
+}
+
+/* ================= SCROLL REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
@@ -486,18 +567,18 @@ section{
     }
 
     .memory-box{
-        min-height:140px;
+        min-height:145px;
     }
 
     .friend-card{
-        min-height:430px;
+        min-height:450px;
     }
 
     .friend-content{
-        padding:35px 24px;
+        padding:38px 24px;
     }
 
-    .friend-content h3{
+    .friend-title{
         font-size:32px;
     }
 }
@@ -506,14 +587,16 @@ section{
 
 <body>
 
-<!-- STARS -->
 <div class="stars" id="stars"></div>
 
-<!-- INTRO -->
+
+<!-- ================= INTRO ================= -->
+
 <div id="intro">
+
     <div class="intro-box">
 
-        <div class="small-line">
+        <div class="intro-small">
             A little place for a special friendship
         </div>
 
@@ -522,7 +605,7 @@ section{
             <span>Forever.</span>
         </div>
 
-        <div class="intro-sub">
+        <div class="intro-text">
             Some friendships don't need a reason.
             They simply become a part of who we are.
         </div>
@@ -532,17 +615,38 @@ section{
         </button>
 
     </div>
+
 </div>
+
+
+<!-- ================= MUSIC ================= -->
+
+<!--
+IMPORTANT:
+Upload your legally obtained audio file to the SAME
+GitHub repository and name it:
+
+friendship.mp3
+
+The file can be your chosen song.
+-->
+
+<audio id="music" loop preload="auto">
+    <source src="friendship.mp3" type="audio/mpeg">
+</audio>
 
 
 <main id="main">
 
-<!-- HERO -->
+
+<!-- ================= HERO ================= -->
+
 <section class="hero">
 
     <div class="sun"></div>
+    <div class="horizon"></div>
 
-    <div class="hero-content">
+    <div class="hero-content reveal">
 
         <div class="hero-tag">
             A friendship worth keeping
@@ -554,13 +658,15 @@ section{
             Forever friends.
         </h1>
 
-        <p>
-            Life changes, people grow, and days move on...
-            but some friendships quietly stay with us through it all.
-        </p>
+        <div class="hero-description">
+            Life changes. People grow.
+            Days become years.
+            But some friendships quietly stay with us
+            through everything.
+        </div>
 
-        <div class="scroll">
-            ↓ scroll slowly
+        <div class="scroll-text">
+            ↓ keep scrolling
         </div>
 
     </div>
@@ -568,23 +674,26 @@ section{
 </section>
 
 
-<!-- QUOTE -->
+<!-- ================= QUOTE ================= -->
+
 <section class="quote-section">
 
-    <div class="quote-card">
+    <div class="quote-container reveal">
 
-        <div class="quote-mark">“</div>
+        <div class="quote-mark">
+            “
+        </div>
 
         <div class="quote">
             A true friend isn't someone who makes
             your life perfect...
-            <br>
+            <br><br>
             they're the one who
-            <em>stays when life isn't.</em>
+            <span>stays when life isn't.</span>
         </div>
 
-        <div class="quote-note">
-            — because real friendship is about staying
+        <div class="quote-author">
+            — because real friendship means staying
         </div>
 
     </div>
@@ -592,25 +701,28 @@ section{
 </section>
 
 
-<!-- FRIENDSHIP -->
+<!-- ================= FRIENDSHIP ================= -->
+
 <section class="friendship">
 
-    <div class="section-label">
+    <div class="label reveal">
         More than friendship
     </div>
 
-    <div class="section-title">
+    <div class="section-title reveal">
         Some people feel like home.
     </div>
 
-    <div class="friend-card">
+    <div class="friend-card reveal">
 
-        <div class="doodle d1">✦</div>
-        <div class="doodle d2">☁</div>
+        <div class="circle one"></div>
+        <div class="circle two"></div>
 
         <div class="friend-content">
 
-            <h3>Nobita & Doraemon</h3>
+            <div class="friend-title">
+                Nobita & Doraemon
+            </div>
 
             <p>
                 They weren't perfect.
@@ -621,19 +733,16 @@ section{
             <br>
 
             <p>
-                But when one needed the other,
+                But whenever one needed the other,
                 they were there.
-                That's what makes a friendship special.
             </p>
 
             <br>
 
-            <p>
-                <strong>
-                    Different personalities.
-                    Different dreams.
-                    One unforgettable bond.
-                </strong>
+            <p class="friend-highlight">
+                That's what makes a friendship special.
+                You don't have to be perfect for each other.
+                You just have to be real.
             </p>
 
         </div>
@@ -643,49 +752,73 @@ section{
 </section>
 
 
-<!-- MEMORY GRID -->
+<!-- ================= MEMORY ================= -->
+
 <section class="memory">
 
-    <div class="section-label">
+    <div class="label reveal">
         The little things
     </div>
 
-    <div class="section-title">
+    <div class="section-title reveal">
         That's what makes it special.
     </div>
 
     <div class="memory-grid">
 
-        <div class="memory-box">
+        <div class="memory-box reveal">
+
             <div class="memory-icon">😂</div>
-            <h4>Same Laughs</h4>
+
+            <h3>Same Laughs</h3>
+
             <p>
-                The kind of laughter that makes absolutely no sense to anyone else.
+                The kind of laughter that makes
+                absolutely no sense to anyone else.
             </p>
+
         </div>
 
-        <div class="memory-box">
+
+        <div class="memory-box reveal">
+
             <div class="memory-icon">🌙</div>
-            <h4>Late Conversations</h4>
+
+            <h3>Random Talks</h3>
+
             <p>
-                Random talks that somehow become the memories you remember most.
+                Conversations that start with nothing
+                and somehow become unforgettable.
             </p>
+
         </div>
 
-        <div class="memory-box">
+
+        <div class="memory-box reveal">
+
             <div class="memory-icon">✨</div>
-            <h4>Little Moments</h4>
+
+            <h3>Little Moments</h3>
+
             <p>
-                Sometimes the smallest moments become the biggest memories.
+                Sometimes the smallest moments
+                become the memories we keep forever.
             </p>
+
         </div>
 
-        <div class="memory-box">
+
+        <div class="memory-box reveal">
+
             <div class="memory-icon">🤝</div>
-            <h4>Always There</h4>
+
+            <h3>Always There</h3>
+
             <p>
-                Not always beside you, but always somewhere in your corner.
+                Maybe not every minute,
+                but always somewhere in your corner.
             </p>
+
         </div>
 
     </div>
@@ -693,12 +826,13 @@ section{
 </section>
 
 
-<!-- DEEP QUOTE -->
+<!-- ================= DEEP QUOTE ================= -->
+
 <section class="deep">
 
-    <div class="deep-inner">
+    <div class="deep-container reveal">
 
-        <div class="section-label">
+        <div class="label">
             Remember this
         </div>
 
@@ -718,10 +852,11 @@ section{
 </section>
 
 
-<!-- FINAL -->
+<!-- ================= FINAL ================= -->
+
 <section class="final">
 
-    <div class="final-box">
+    <div class="final-container reveal">
 
         <div class="final-small">
             Before you leave...
@@ -733,15 +868,22 @@ section{
         </h2>
 
         <div class="final-message">
+
             Maybe someday we'll be busy,
             living different lives and chasing different dreams.
-            But I hope we never become strangers.
+
             <br><br>
+
+            But I hope we never become strangers.
+
+            <br><br>
+
             Because some friendships are too meaningful
             to simply become a memory.
+
         </div>
 
-        <div class="signature">
+        <div class="final-line">
             Same madness. Forever friends. ✨
         </div>
 
@@ -752,145 +894,185 @@ section{
 </main>
 
 
-<!-- MUSIC BUTTON -->
-<button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+<!-- ================= MUSIC BUTTON ================= -->
+
+<button
+    class="music-btn"
+    id="musicBtn"
+    onclick="toggleMusic()"
+    aria-label="Play or pause music">
     ♫
 </button>
 
-<!--
-====================================================
-OPTIONAL MUSIC
-====================================================
-
-If you want background music:
-
-1. Put an MP3 file in the same GitHub folder.
-2. Rename it to:
-
-   friendship.mp3
-
-3. Uncomment the audio tag below.
-
-IMPORTANT:
-Phones usually block autoplay, so music starts only
-after the visitor taps the Enter button.
-
-<audio id="music" loop>
-    <source src="friendship.mp3" type="audio/mpeg">
-</audio>
-
-====================================================
--->
 
 <script>
 
-/* ---------- CREATE STARS ---------- */
+/* ================= CREATE STARS ================= */
 
-const stars = document.getElementById("stars");
+const stars =
+    document.getElementById("stars");
 
-for(let i = 0; i < 70; i++){
+for(let i = 0; i < 80; i++){
 
-    const star = document.createElement("div");
+    const star =
+        document.createElement("div");
 
     star.className = "star";
 
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
-    star.style.animationDelay = (Math.random() * 3) + "s";
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
 
     stars.appendChild(star);
 }
 
 
-/* ---------- ENTER SITE ---------- */
+/* ================= ELEMENTS ================= */
 
-function enterSite(){
+const intro =
+    document.getElementById("intro");
 
-    document.getElementById("intro").classList.add("hide");
+const main =
+    document.getElementById("main");
 
-    setTimeout(() => {
-        document.getElementById("main").classList.add("show");
-    },400);
+const music =
+    document.getElementById("music");
 
-    /* Optional music */
-
-    const music = document.getElementById("music");
-
-    if(music){
-        music.volume = 0.35;
-        music.play().catch(()=>{});
-    }
-}
-
-
-/* ---------- MUSIC ---------- */
+const musicBtn =
+    document.getElementById("musicBtn");
 
 let musicPlaying = false;
 
+
+/* ================= ENTER WEBSITE ================= */
+
+function enterSite(){
+
+    intro.classList.add("hide");
+
+    setTimeout(() => {
+
+        main.classList.add("show");
+
+    },400);
+
+
+    /*
+    Music starts only after the visitor
+    presses the Enter button.
+    This avoids most mobile autoplay restrictions.
+    */
+
+    music.volume = 0.30;
+
+    music.play()
+    .then(() => {
+
+        musicPlaying = true;
+
+        musicBtn.innerHTML = "❚❚";
+
+        musicBtn.classList.add("playing");
+
+    })
+    .catch(() => {
+
+        /*
+        If the browser blocks playback,
+        the visitor can press the music button.
+        */
+
+        musicPlaying = false;
+
+        musicBtn.innerHTML = "♫";
+
+    });
+}
+
+
+/* ================= MUSIC PLAY / PAUSE ================= */
+
 function toggleMusic(){
-
-    const music = document.getElementById("music");
-    const btn = document.getElementById("musicBtn");
-
-    if(!music){
-        btn.innerHTML = "♫";
-        return;
-    }
 
     if(musicPlaying){
 
         music.pause();
+
         musicPlaying = false;
-        btn.innerHTML = "♫";
+
+        musicBtn.innerHTML = "♫";
+
+        musicBtn.classList.remove("playing");
 
     }else{
 
-        music.play().then(()=>{
+        music.play()
+        .then(() => {
 
             musicPlaying = true;
-            btn.innerHTML = "❚❚";
 
-        }).catch(()=>{});
+            musicBtn.innerHTML = "❚❚";
 
+            musicBtn.classList.add("playing");
+
+        })
+        .catch(() => {
+
+            musicBtn.innerHTML = "♫";
+
+        });
     }
 }
 
 
-/* ---------- REVEAL ANIMATION ---------- */
+/* ================= SCROLL REVEAL ================= */
 
-const observer = new IntersectionObserver(
+const observer =
+    new IntersectionObserver(
 
-    entries => {
+        entries => {
 
-        entries.forEach(entry => {
+            entries.forEach(entry => {
 
-            if(entry.isIntersecting){
+                if(entry.isIntersecting){
 
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
+                    entry.target.classList.add("visible");
 
-            }
+                }
 
-        });
+            });
 
-    },
+        },
 
-    {
-        threshold:0.15
-    }
-
-);
+        {
+            threshold:0.15
+        }
+    );
 
 
-document.querySelectorAll(
-    ".quote-card,.friend-card,.memory-box,.deep-inner,.final-box"
-).forEach(el => {
+document
+.querySelectorAll(".reveal")
+.forEach(element => {
 
-    el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "opacity .9s ease, transform .9s ease";
+    observer.observe(element);
 
-    observer.observe(el);
+});
+
+
+/* ================= WHEN MUSIC ENDS ================= */
+
+music.addEventListener("ended", () => {
+
+    musicPlaying = false;
+
+    musicBtn.innerHTML = "♫";
+
+    musicBtn.classList.remove("playing");
 
 });
 
